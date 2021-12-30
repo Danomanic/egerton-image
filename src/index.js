@@ -39,5 +39,5 @@ app.get('/generate/match/:Id', async (req, res) => {
 });
 
 app.listen(port, () => {
-	console.log(`Example app listening at http://localhost:${port}`);
+	console.log(`Egerton Image generator listening at ${port}`);
 });
