@@ -19,6 +19,16 @@ app.get('/generate/match/:Id', async (req, res) => {
 			html: buffer.toString(),
 			quality: 100,
 			content: { teamName: req.params.Id, eagleTable: await buildPlayerTable(matchData, 'Eagle'), cobraTable: await buildPlayerTable(matchData, 'Cobra') },
+			puppeteerArgs: {
+				headless: true,
+				args: [
+					'--no-sandbox',
+					'--disable-setuid-sandbox',
+					'--headless',
+					'--disable-gpu',
+					'--disable-dev-shm-usage',
+				],
+			},
 		});
 
 		if (config.IS_LOCAL) {
