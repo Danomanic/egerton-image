@@ -35,9 +35,6 @@ RUN npm init -y &&  \
     && chown -R pptruser:pptruser /package.json \
     && chown -R pptruser:pptruser /package-lock.json
 
-# Run everything after as non-privileged user.
-USER pptruser
-
 # Set the working directory to /app
 WORKDIR '/app'
 
