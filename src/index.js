@@ -7,7 +7,7 @@ const { buildPlayerTable } = require('./elements/player-table');
 const config = require('./config');
 
 const app = express();
-const port = 3000;
+const port = config.PORT || 3000;
 
 const buffer = fs.readFileSync(`${__dirname}/html/match.html`);
 
