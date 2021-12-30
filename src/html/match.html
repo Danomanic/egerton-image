@@ -1,0 +1,78 @@
+<html>
+  <head>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap');
+      html {
+        width: 800px;
+        height: 385px;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        width: 800px;
+        height: 385px;
+        font-family: 'Oswald', sans-serif;
+        background-image: url("https://d28upl8fk7oq7l.cloudfront.net/bg.jpeg");
+        font-size: 2em;
+        color: #ffffff;
+        margin: 0;
+        padding: 0;
+      }
+      .wrap {
+        width: 800px;
+        height: 385px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+      .Eagle th {
+        background-color: rgba(94,174,226,255);
+      }
+      .Cobra th {
+        background-color: rgba(222,68,68,255);
+      }
+      p {
+        margin: 0;
+        padding: 0;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      th {
+        border: 0px;
+        padding: 8px;
+      }
+      tr {
+        border: 0px;
+      }
+      td {
+        padding: 5px 15px;
+      }
+      tr:nth-child(even){
+        background-color: rgba(0, 0, 0, 0.6);
+        padding: 15px;
+      }
+      tr:nth-child(odd){
+        background-color: rgba(0, 0, 0, 0.4);
+        padding: 15px;
+      }
+      .plus {
+        color: lightgreen;
+      }
+      .minus {
+        color: rgba(222,68,68,255);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <p>
+        {{{ eagleTable }}}
+        <hr >
+        {{{ cobraTable }}}
+      </p>
+  </div>
+  </body>
+</html>
