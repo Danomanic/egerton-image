@@ -8,7 +8,7 @@ const buildPlayerTable = (matchData, teamName) => {
         <th>Score</th>
         <th>Dealt</th>
         <th>Taken</th>
-        <th>KDA</th>
+        <th>KDR</th>
         <th>Accuracy</th>
         <th>K</th>
         <th>D</th>
@@ -27,7 +27,7 @@ const buildPlayerTable = (matchData, teamName) => {
         <td style="text-align:center">${player.stats.core.score}</td>
         <td style="text-align:center">${player.stats.core.damage.dealt}</td>
         <td style="text-align:center">${player.stats.core.damage.taken}</td>
-        <td style="text-align:center">${player.stats.core.kda}</td>
+        <td style="text-align:center">${player.stats.core.kdr}</td>
         <td style="text-align:center">${player.stats.core.shots.accuracy.toFixed(2)}</td>
         <td style="text-align:center">${player.stats.core.summary.kills}</td>
         <td style="text-align:center">${player.stats.core.summary.deaths}</td>
