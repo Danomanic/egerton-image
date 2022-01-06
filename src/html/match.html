@@ -4,33 +4,35 @@
       @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap');
       html {
         width: 800px;
-        height: 385px;
         margin: 0;
         padding: 0;
       }
       body {
         width: 800px;
-        height: 385px;
+        height: 764px;
         font-family: 'Oswald', sans-serif;
         background-image: url("https://d28upl8fk7oq7l.cloudfront.net/bg.jpeg");
-        font-size: 2em;
+        font-size: 3em;
         color: #ffffff;
         margin: 0;
         padding: 0;
       }
       .wrap {
         width: 800px;
-        height: 385px;
-        position: absolute;
-        left: 0;
-        top: 0;
-        background-color: rgba(0, 0, 0, 0.5);
+        height: 800px;
+        background-color: rgba(0, 0, 0, 0.8);
       }
       .Eagle th {
         background-color: rgba(94,174,226,255);
       }
       .Cobra th {
         background-color: rgba(222,68,68,255);
+      }
+      .kills-table th {
+        background-color: rgba(128, 0, 128, 0.705);
+      }
+      .shots-table th {
+        background-color: rgba(167, 109, 1, 0.582);
       }
       p {
         margin: 0;
@@ -64,6 +66,14 @@
       .minus {
         color: pink;
       }
+      .left {
+        float: left;
+        width: 49%;
+      }
+      .right {
+        float: right;
+        width: 49%;
+      }
     </style>
   </head>
   <body>
@@ -73,6 +83,12 @@
         <hr >
         {{{ cobraTable }}}
       </p>
-  </div>
+      <hr />
+      <div class="container">
+        <div class="left">{{{ shotsTable }}}</div>
+        <div class="right">{{{ killsTable }}}</div>
+      </div>
+      </p>
+    </div>
   </body>
 </html>
