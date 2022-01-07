@@ -22,17 +22,12 @@
         height: 800px;
         background-color: rgba(0, 0, 0, 0.8);
       }
-      .Eagle th {
-        background-color: rgba(94,174,226,255);
+      
+      .Eagle td {
+        background-color: rgba(94,174,226,0.2);
       }
-      .Cobra th {
-        background-color: rgba(222,68,68,255);
-      }
-      .kills-table th {
-        background-color: rgba(128, 0, 128, 0.705);
-      }
-      .shots-table th {
-        background-color: rgba(167, 109, 1, 0.582);
+      .Cobra td {
+        background-color: rgba(222,68,68,0.2);
       }
       p {
         margin: 0;
@@ -45,12 +40,15 @@
       th {
         border: 0px;
         padding: 8px;
+        background-color: rgba(0,0,0,0);
+        white-space: nowrap;
       }
       tr {
         border: 0px;
       }
       td {
         padding: 5px 15px;
+        white-space: nowrap;
       }
       tr:nth-child(even){
         background-color: rgba(0, 0, 0, 0.6);
@@ -68,20 +66,18 @@
       }
       .left {
         float: left;
-        width: 49%;
+        width: 39%;
       }
       .right {
         float: right;
-        width: 49%;
+        width: 59%;
       }
     </style>
   </head>
   <body>
     <div class="wrap">
       <p>
-        {{{ eagleTable }}}
-        <hr >
-        {{{ cobraTable }}}
+        {{{ playerTable }}}
       </p>
       <hr />
       <div class="container">

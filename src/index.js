@@ -20,7 +20,7 @@ app.get('/generate/match/:Id', async (req, res) => {
 		const image = await nodeHtmlToImage({
 			html: buffer.toString(),
 			quality: 100,
-			content: { teamName: req.params.Id, eagleTable: await buildPlayerTable(matchData, 'Eagle'), cobraTable: await buildPlayerTable(matchData, 'Cobra'), shotsTable: await buildShotsTable(matchData), killsTable: await buildKillsTable(matchData) },
+			content: { teamName: req.params.Id, playerTable: await buildPlayerTable(matchData), shotsTable: await buildShotsTable(matchData), killsTable: await buildKillsTable(matchData) },
 			puppeteerArgs: {
 				headless: true,
 				args: [
