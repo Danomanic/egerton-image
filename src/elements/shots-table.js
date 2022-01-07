@@ -2,7 +2,7 @@ const buildShotsTable = (matchData) => {
 	let table = `<table class="table table-striped shots-table">
     <thead>
       <tr>
-        <th><u>Shots</u></th>
+        <th style="text-align:left">Shots</th>
         <th>Fired</th>
         <th>Accuracy</th>
       </tr>

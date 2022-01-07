@@ -4,7 +4,7 @@ const buildPlayerTable = (matchData) => {
       <tr>
         <th style="min-width:150px"></th>
         <th>Rating</th>
-				<th></th>
+				<th>+/-</th>
         <th>Score</th>
         <th>Dealt</th>
         <th>Taken</th>

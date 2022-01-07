@@ -2,7 +2,7 @@ const buildKillsTable = (matchData) => {
 	let table = `<table class="table table-striped kills-table">
     <thead>
       <tr>
-        <th><u>Kills</u></th>
+        <th style="text-align:left">Kills</th>
         <th>H/S</th>
         <th>BR</th>
         <th>Melee</th>

@@ -20,15 +20,22 @@
         width: 1260px;
         height: 700px;
         padding: 20px 10px;
-        background-color: rgba(0, 0, 0, 0.5);
+        background-color: rgba(0, 0, 0, 0.85);
       }
       
-      .Eagle td {
-        background-color: rgba(94,174,226,0.2);
+      tr.Eagle:nth-child(even) {
+        background-color: rgba(36,92,126,0.7);
       }
-      .Cobra td {
-        background-color: rgba(222,68,68,0.2);
+      tr.Eagle:nth-child(odd) {
+        background-color: rgba(36,92,126,0.6);
       }
+      tr.Cobra:nth-child(even) {
+        background-color: rgba(126,28,28,0.7);
+      }
+      tr.Cobra:nth-child(odd) {
+        background-color: rgba(126,28,28,0.6);
+      }
+
       p {
         margin: 0;
         padding: 0;
@@ -36,15 +43,14 @@
       table {
         width: 100%;
         border-collapse: collapse;
-        background-color: rgba(0, 0, 0, 0.85);
         font-size: 1.1em;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.9);
       }
       th {
         border: 0px;
         padding: 8px;
-        background-color: rgba(0,0,0,0);
         white-space: nowrap;
-        border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.9);
       }
       tr {
         border: 0px;
@@ -52,14 +58,6 @@
       td {
         padding: 5px 15px;
         white-space: nowrap;
-      }
-      tr:nth-child(even){
-        background-color: rgba(0, 0, 0, 0.6);
-        padding: 15px;
-      }
-      tr:nth-child(odd){
-        background-color: rgba(0, 0, 0, 0.4);
-        padding: 15px;
       }
       .plus {
         color: lightgreen;
@@ -82,7 +80,6 @@
       <p>
         {{{ playerTable }}}
       </p>
-      <hr />
       <div class="container">
         <div class="left">{{{ shotsTable }}}</div>
         <div class="right">{{{ killsTable }}}</div>
