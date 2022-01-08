@@ -3,10 +3,10 @@ const buildPlayerTable = (matchData) => {
     <thead>
       <tr class="text-white text-center">
         <th style="min-width:150px"></th>
+        <th>Score</th>
         <th>${getMode(matchData)}</th>
         <th>Rating</th>
 				<th>+/-</th>
-        <th>Score</th>
         <th>KDR</th>
         <th>K</th>
         <th>D</th>
@@ -20,10 +20,10 @@ const buildPlayerTable = (matchData) => {
 	matchData.players.forEach((player) => {
 		table += `<tr class="text-white text-center ${player.team.name}">
         <td style="text-align:left">${player.gamertag}</td>
+        <td>${player.stats.core.score}</td>
         <td>${getModeScore(player)}</td>
         <td>${player.progression.csr.post_match.value}</td>
 				<td>${getCSRDifference(player.progression.csr.pre_match.value, player.progression.csr.post_match.value)}</td>
-        <td>${player.stats.core.score}</td>
         <td>${player.stats.core.kdr.toFixed(2)}</td>
         <td>${player.stats.core.summary.kills}</td>
         <td>${player.stats.core.summary.deaths}</td>
