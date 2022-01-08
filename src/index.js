@@ -6,6 +6,7 @@ const Halo = require('./lib/halo');
 const { buildPlayerTable } = require('./elements/player-table');
 const { buildShotsTable } = require('./elements/shots-table');
 const { buildKillsTable } = require('./elements/kills-table');
+const { buildDamageTable } = require('./elements/damage-table');
 const config = require('./config');
 
 const app = express();
@@ -20,7 +21,7 @@ app.get('/generate/match/:Id', async (req, res) => {
 		const image = await nodeHtmlToImage({
 			html: buffer.toString(),
 			quality: 100,
-			content: { teamName: req.params.Id, playerTable: await buildPlayerTable(matchData), shotsTable: await buildShotsTable(matchData), killsTable: await buildKillsTable(matchData) },
+			content: { teamName: req.params.Id, playerTable: await buildPlayerTable(matchData), shotsTable: await buildShotsTable(matchData), killsTable: await buildKillsTable(matchData), damageTable: await buildDamageTable(matchData) },
 			puppeteerArgs: {
 				headless: true,
 				args: [

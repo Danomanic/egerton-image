@@ -1,9 +1,10 @@
 const buildShotsTable = (matchData) => {
-	let table = `<table class="table table-striped shots-table">
+	let table = `<table class="table table-borderless table-sm shots-table">
     <thead>
-      <tr>
+      <tr class="text-white text-center">
         <th style="text-align:left">Shots</th>
         <th>Fired</th>
+        <th>Shot Dmg</th>
         <th>Accuracy</th>
       </tr>
     </thead>
@@ -11,10 +12,11 @@ const buildShotsTable = (matchData) => {
 
 	matchData.players.sort((a, b) => b.stats.core.shots.fired - a.stats.core.shots.fired);
 	matchData.players.forEach((player) => {
-		table += `<tr class="${player.team.name}">
-        <td>${player.gamertag}</td>
-        <td style="text-align:center">${player.stats.core.shots.fired}</td>
-        <td style="text-align:center">${player.stats.core.shots.accuracy.toFixed(2)} %</td>
+		table += `<tr class="text-white text-center ${player.team.name}">
+        <td style="text-align:left">${player.gamertag}</td>
+        <td>${player.stats.core.shots.fired}</td>
+        <td>${(player.stats.core.damage.dealt / player.stats.core.shots.fired).toFixed(2)}</td>
+        <td>${player.stats.core.shots.accuracy.toFixed(2)} %</td>
       </tr>`;
 	});
 
