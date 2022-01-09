@@ -4,7 +4,7 @@ const buildShotsTable = (matchData) => {
       <tr class="text-white text-center">
         <th style="text-align:left">Shots</th>
         <th>Fired</th>
-        <th>Shot Dmg</th>
+        <th>Missed</th>
         <th>Accuracy</th>
       </tr>
     </thead>
@@ -15,7 +15,7 @@ const buildShotsTable = (matchData) => {
 		table += `<tr class="text-white text-center ${player.team.name}">
         <td style="text-align:left">${player.gamertag}</td>
         <td>${player.stats.core.shots.fired}</td>
-        <td>${(player.stats.core.damage.dealt / player.stats.core.shots.fired).toFixed(2)}</td>
+        <td>${player.stats.core.shots.missed}</td>
         <td>${player.stats.core.shots.accuracy.toFixed(2)} %</td>
       </tr>`;
 	});

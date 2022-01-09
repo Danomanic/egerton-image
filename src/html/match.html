@@ -64,19 +64,18 @@
       .minus {
         color: pink;
       }
-      .left {
-        float: left;
-        width: 39%;
-      }
-      .right {
-        float: right;
-        width: 59%;
+      .img-rank {
+        height: 25px;
+        width: 25px;
       }
     </style>
   </head>
   <body>
     <div class="bg-wrap">
       <div class="row">
+        <div class="col-4">
+          {{{ rankTable }}}
+        </div>
         <div class="col">
           {{{ playerTable }}}
         </div>

@@ -3,6 +3,7 @@ const fs = require('fs');
 const nodeHtmlToImage = require('node-html-to-image');
 const S3 = require('./aws/s3');
 const Halo = require('./lib/halo');
+const { buildRankTable } = require('./elements/rank-table');
 const { buildPlayerTable } = require('./elements/player-table');
 const { buildShotsTable } = require('./elements/shots-table');
 const { buildKillsTable } = require('./elements/kills-table');
@@ -20,7 +21,13 @@ app.get('/generate/match/:Id', async (req, res) => {
 		const image = await nodeHtmlToImage({
 			html: buffer.toString(),
 			quality: 100,
-			content: { teamName: req.params.Id, playerTable: await buildPlayerTable(matchData), shotsTable: await buildShotsTable(matchData), killsTable: await buildKillsTable(matchData), damageTable: await buildDamageTable(matchData) },
+			content: {
+				teamName: req.params.Id,
+				rankTable: await buildRankTable(matchData),
+				playerTable: await buildPlayerTable(matchData),
+				shotsTable: await buildShotsTable(matchData),
+				killsTable: await buildKillsTable(matchData),
+				damageTable: await buildDamageTable(matchData) },
 			puppeteerArgs: {
 				headless: true,
 				args: [
@@ -59,10 +66,10 @@ app.get('/generate/gamertag/:gamerTag/:Id', async (req, res) => {
 		const image = await nodeHtmlToImage({
 			html: buffer.toString(),
 			quality: 100,
-			content: { 
-				gamerTag: req.params.gamerTag, 
-				gamerTagAppearance, 
-				stats: playerStats, 
+			content: {
+				gamerTag: req.params.gamerTag,
+				gamerTagAppearance,
+				stats: playerStats,
 				accuracy: playerStats.core.shots.accuracy.toFixed(2) + '%',
 				kda: playerStats.core.kda.toFixed(2),
 				kdr: playerStats.core.kdr.toFixed(2),
