@@ -1,0 +1,167 @@
+<html>
+  <head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap');
+      html {
+        margin: 0;
+        padding: 0;
+        color: #ffffff;
+      }
+      body {
+        width: 640px;
+        height: 360px;
+        font-family: 'Oswald', sans-serif;
+        background-image: url("https://d28upl8fk7oq7l.cloudfront.net/bg.jpeg");
+        color: #ffffff;
+        margin: 0;
+        padding: 0;
+      }
+      .bg-wrap {
+        width: 640px;
+        height: 360px;
+        margin: 0;
+        padding: 0;
+        background-color: rgba(0, 0, 0, 0.85);
+      }
+      .emblem img {
+        height: 40px;
+        width: 40px;
+      }
+      .title h1 {
+        text-transform: uppercase;
+        color: rgba(255,255,255,0.6);
+        padding-left: 4px;
+        font-size: 2em;
+        margin: 0;
+      }
+      .title {
+        padding-left: 1em;
+        border-left: 2px solid rgba(255,255,255,0.5);
+        height: 100%;
+        margin-top: 5px;
+      }
+      hr {
+        padding: 1px;
+        margin: 7px 2px;
+      }
+      .stats h1 {
+        text-transform: uppercase;
+        color: rgba(36,92,126,1);
+        padding-left: 4px;
+        padding-bottom: 5px;
+        border-bottom: 2px solid rgba(36,92,126,0.5);
+        font-size: 1.5em;
+      }
+      .stats {
+        padding-left: 1em;
+        border-left: 2px solid rgba(36,92,126,0.5);
+        height: 100%;
+      }
+      .first {
+        padding-left: 0 !important;
+        border-left: 0 !important;
+      }
+      .heading {
+        font-size: 1em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.55);
+      }
+      .item {
+        font-size: 1em;
+        text-transform: uppercase;
+        text-align: right;
+      }
+      .row {
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bg-wrap">
+      <div class="row">
+        <div class="col">
+          <div class="title">
+            <div class="row">
+              <div class="col">
+                <h1>{{ gamerTag }}</h1>
+              </div>
+              <div class="col-2 float-right text-right">
+                <div class="emblem"><img class="float-end" src="{{ gamerTagAppearance.emblem_url }}"/></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr />
+      <div class="row">
+        <div class="col-3">
+          <div class="stats first">
+            <h1>Summary</h1>
+            <table class="table text-white table-borderless table-sm">
+              <tr><td class="heading">Kills</td> <td class="item">{{ stats.core.summary.kills }}</td></tr>
+              <tr><td class="heading">Deaths</td> <td class="item">{{ stats.core.summary.deaths }}</td></tr>
+              <tr><td class="heading">Assists</td> <td class="item">{{ stats.core.summary.assists }}</td></tr>
+              <tr><td class="heading">Betrayals</td> <td class="item">{{ stats.core.summary.betrayals }}</td></tr>
+              <tr><td class="heading">Suicides</td> <td class="item">{{ stats.core.summary.suicides }}</td></tr>
+            </table>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="stats">
+            <h1>Damage</h1>
+            <table class="table text-white table-borderless table-sm">
+              <tr><td class="heading">Dealt</td> <td class="item">{{ stats.core.damage.dealt }}</td></tr>
+              <tr><td class="heading">Taken</td> <td class="item">{{ stats.core.damage.taken }}</td></tr>
+              <tr><td class="heading">Average</td> <td class="item">{{ stats.core.damage.average }}</td></tr>
+            </table>
+            <hr/>
+            <table class="table text-white table-borderless table-sm">
+              <tr><td class="heading">KDR</td> <td class="item">{{ kdr }}</td></tr>
+              <tr><td class="heading">KDR</td> <td class="item">{{ kda }}</td></tr>
+            </table>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="stats">
+            <h1>Shots</h1>
+            <table class="table text-white table-borderless table-sm">
+              <tr><td class="heading">Fired</td> <td class="item">{{ stats.core.shots.fired }}</td></tr>
+              <tr><td class="heading">Landed</td> <td class="item">{{ stats.core.shots.landed }}</td></tr>
+              <tr><td class="heading">Missed</td> <td class="item">{{ stats.core.shots.missed }}</td></tr>
+              <tr><td class="heading">Accuracy</td> <td class="item">{{ accuracy }}</td></tr>
+            </table>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="stats">
+            <h1>Matches</h1>
+            <table class="table text-white table-borderless table-sm">
+              <tr><td class="heading">Wins</td> <td class="item">{{ stats.core.breakdowns.matches.wins }}</td></tr>
+              <tr><td class="heading">Losses</td> <td class="item">{{ stats.core.breakdowns.matches.losses }}</td></tr>
+              <tr><td class="heading">Draws</td> <td class="item">{{ stats.core.breakdowns.matches.draws }}</td></tr>
+              <tr><td class="heading">Left</td> <td class="item">{{ stats.core.breakdowns.matches.left }}</td></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+      <hr />
+      <div class="row">
+        <div class="col">
+          <div class="stats first">
+            <table class="table text-white table-borderless table-sm">
+              <tr><td class="heading">Total Score</td> <td class="item">{{ stats.core.total_score }}</td></tr>
+            </table>
+          </div>
+        </div>
+        <div class="col">
+          <div class="stats">
+            <table class="table text-white table-borderless table-sm">
+              <tr><td class="heading">Time Played</td> <td class="item">{{ stats.time_played.human }}</td></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
