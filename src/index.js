@@ -17,6 +17,9 @@ app.get('/generate/match/:Id', async (req, res) => {
 	try {
 		const buffer = fs.readFileSync(`${__dirname}/html/match.html`);
 		const matchData = await Halo.getMatchData(req.params.Id);
+		if (matchData.details.playlist.properties.ranked === 'false') {
+			throw new Error('Match was not ranked.');
+		}
 
 		const image = await nodeHtmlToImage({
 			html: buffer.toString(),
@@ -53,7 +56,7 @@ app.get('/generate/match/:Id', async (req, res) => {
 	catch (e) {
 		console.log(e);
 		res.setHeader('Content-Type', 'application/json');
-		res.end(JSON.stringify({ status: 'error' }));
+		res.end(JSON.stringify({ status: 'error', message: e.message }));
 	}
 });
 
@@ -61,6 +64,9 @@ app.get('/generate/gamertag/:gamerTag/:Id', async (req, res) => {
 	try {
 		const buffer = fs.readFileSync(`${__dirname}/html/gamertag.html`);
 		const playerStats = await Halo.getPlayerStats(req.params.gamerTag);
+		if (playerStats.length === 0) {
+			throw new Error('Gamer tag not found');
+		}
 		const gamerTagAppearance = await Halo.getGamerTagAppearance(req.params.gamerTag);
 
 		const image = await nodeHtmlToImage({
@@ -99,7 +105,7 @@ app.get('/generate/gamertag/:gamerTag/:Id', async (req, res) => {
 	catch (e) {
 		console.log(e);
 		res.setHeader('Content-Type', 'application/json');
-		res.end(JSON.stringify({ status: 'error' }));
+		res.end(JSON.stringify({ status: 'error', message: e.message }));
 	}
 });
 
