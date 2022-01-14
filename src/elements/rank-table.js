@@ -1,7 +1,6 @@
 const buildRankTable = (matchData) => {
-	let table = '';
 	try {
-		table = `<div class="col-4">
+		let table = `<div class="col-4">
       <table class="table table-borderless">
 			<thead>
 				<tr class="text-white text-center">
@@ -21,17 +20,16 @@ const buildRankTable = (matchData) => {
 					<td style="text-align:left">${player.gamertag}</td>
 					<td>${player.progression.csr.post_match.value}</td>
 					<td>${getCSRDifference(player.progression.csr.pre_match.value, player.progression.csr.post_match.value)}</td>
-					<td>${player.progression.csr.pre_match.tier} ${player.progression.csr.pre_match.sub_tier + 1}</td>
+					<td>${player.progression.csr.post_match.tier} ${player.progression.csr.post_match.sub_tier + 1}</td>
 				</tr>`;
 		});
 
 		table += '</tbody></table></div>';
+		return table;
 	}
 	catch (error) {
-		console.error(error);
+		return '<div class="col-4"><div class="broke alert alert-danger">Sadly there was a problem with this match data. This happens when something goes wrong on 343 Servers. Players and data may be missing or incorrect.</div></div>';
 	}
-
-	return table;
 };
 
 const getCSRDifference = (before, after) => {
