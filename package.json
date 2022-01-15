@@ -6,6 +6,9 @@
   "repository": "git@github.com:Danomanic/egerton-image.git",
   "author": "Daniel Pomfret <dan@coly.uk>",
   "license": "MIT",
+  "scripts": {
+    "test": "echo \"No test specified yet\" && exit 0"
+  },
   "dependencies": {
     "aws-sdk": "^2.1048.0",
     "dotenv": "^10.0.0",
