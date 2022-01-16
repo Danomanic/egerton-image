@@ -1,5 +1,5 @@
 const buildPlayerTable = (matchData) => {
-	let table = `<table class="table table-borderless">
+	let table = `<table class="table table-borderless table-sm">
     <thead>
       <tr class="text-white text-center">
         <th style="min-width:150px"></th>
@@ -35,13 +35,13 @@ const buildPlayerTable = (matchData) => {
 const getMode = (matchData) => {
 	if (matchData.players[0].stats.mode != null) {
 		if ('oddballs' in matchData.players[0].stats.mode) {
-			return 'Oddball';
+			return 'Ball';
 		}
 		if ('flags' in matchData.players[0].stats.mode) {
 			return 'Flags';
 		}
 		if ('zones' in matchData.players[0].stats.mode) {
-			return 'Strongholds';
+			return 'Holds';
 		}
 	}
 	return '';

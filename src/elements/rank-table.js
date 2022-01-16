@@ -1,7 +1,7 @@
 const buildRankTable = (matchData) => {
 	try {
 		let table = `<div class="col-4">
-      <table class="table table-borderless">
+      <table class="table table-borderless table-sm">
 			<thead>
 				<tr class="text-white text-center">
 					<th style="min-width:30px"></th>
