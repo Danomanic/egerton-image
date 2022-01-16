@@ -8,6 +8,7 @@ const { buildPlayerTable } = require('./elements/player-table');
 const { buildShotsTable } = require('./elements/shots-table');
 const { buildKillsTable } = require('./elements/kills-table');
 const { buildDamageTable } = require('./elements/damage-table');
+const { buildMedalsTable } = require('./elements/medals-table');
 const config = require('./config');
 
 const app = express();
@@ -26,11 +27,12 @@ app.get('/generate/match/:Id', async (req, res) => {
 			quality: 100,
 			content: {
 				teamName: req.params.Id,
-				rankTable: await buildRankTable(matchData),
-				playerTable: await buildPlayerTable(matchData),
-				shotsTable: await buildShotsTable(matchData),
-				killsTable: await buildKillsTable(matchData),
-				damageTable: await buildDamageTable(matchData) },
+				rankTable: buildRankTable(matchData),
+				playerTable: buildPlayerTable(matchData),
+				medalsTable: buildMedalsTable(matchData),
+				shotsTable: buildShotsTable(matchData),
+				killsTable: buildKillsTable(matchData),
+				damageTable: buildDamageTable(matchData) },
 			puppeteerArgs: {
 				headless: true,
 				args: [
@@ -48,7 +50,7 @@ app.get('/generate/match/:Id', async (req, res) => {
 			res.end(image, 'binary');
 		}
 		else {
-			await S3.uploadFile(image, `match/${req.params.Id}`);
+			S3.uploadFile(image, `match/${req.params.Id}`);
 			res.setHeader('Content-Type', 'application/json');
 			res.end(JSON.stringify({ status: 'generated' }));
 		}
@@ -97,7 +99,7 @@ app.get('/generate/gamertag/:gamerTag/:Id', async (req, res) => {
 			res.end(image, 'binary');
 		}
 		else {
-			await S3.uploadFile(image, `gamertag/${req.params.Id}`);
+			S3.uploadFile(image, `gamertag/${req.params.Id}`);
 			res.setHeader('Content-Type', 'application/json');
 			res.end(JSON.stringify({ status: 'generated' }));
 		}
